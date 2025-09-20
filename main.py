@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 class Model(nn.Module):
   def __init__(self, in_features=4, h1=8, h2=9, out_features=3):
+    super().__init__()
     self.fc1 = nn.Linear(in_features, h1)
     self.fc2 = nn.Linear(h1, h2)
     self.out = nn.Linear(h2, out_features)
@@ -14,3 +15,7 @@ class Model(nn.Module):
     x = self.out(x)
 
     return x
+  
+torch.manual_seed(41)
+
+model = Model()
