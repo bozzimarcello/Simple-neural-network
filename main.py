@@ -44,3 +44,11 @@ print(X)
 
 # Test train split for pytorch: 80 train, 20 test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=41)
+
+# Convert X features to float tensors (?)
+X_train = torch.FloatTensor(X_train)
+X_test = torch.FloatTensor(X_test)
+
+# Convert y labels to float tensors (?)
+y_train = torch.FloatTensor(y_train)
+y_test = torch.FloatTensor(y_test)
