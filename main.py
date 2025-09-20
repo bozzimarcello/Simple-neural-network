@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 class Model(nn.Module):
   def __init__(self, in_features=4, h1=8, h2=9, out_features=3):
@@ -35,8 +36,11 @@ print(my_df)
 X = my_df.drop('species', axis=1)
 y = my_df['species']
 
-# convert to numpy arrays
+# Convert to numpy arrays
 X = X.values
 y = y.values
 
 print(X)
+
+# Test train split for pytorch: 80 train, 20 test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=41)
