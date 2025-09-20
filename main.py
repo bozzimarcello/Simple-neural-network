@@ -30,3 +30,13 @@ my_df['species'] = my_df['species'].replace('versicolor', 1.0)
 my_df['species'] = my_df['species'].replace('virginica', 2.0)
 
 print(my_df)
+
+# Split the dataset in input and output
+X = my_df.drop('species', axis=1)
+y = my_df['species']
+
+# convert to numpy arrays
+X = X.values
+y = y.values
+
+print(X)
