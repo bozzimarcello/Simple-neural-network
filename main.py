@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -77,3 +79,13 @@ for i in range(epochs):
   optimizer.zero_grad()
   loss.backward()
   optimizer.step()
+
+# Graph
+plt.plot(range(epochs), losses)
+plt.ylabel('loss/error')
+plt.xlabel('Epoch')
+
+plt.title('Training Loss Over Time')
+plt.savefig('training_loss.png', dpi=300, bbox_inches='tight')
+print("Plot saved as 'training_loss.png'")
+plt.close()  # Free up memory
